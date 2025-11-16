@@ -66,8 +66,8 @@ namespace Audio {
         static bool IS_ALLOWED_TO_PLAY() {
             return !(static_cast<uint8_t>(internal.currentState)
                 & (static_cast<uint8_t>(State::Paused)
-                    | static_cast<uint8_t>(State::Stopped)
-                    | static_cast<uint8_t>(State::None)));
+                |  static_cast<uint8_t>(State::Stopped)
+                |  static_cast<uint8_t>(State::None)));
         }
 
     private:

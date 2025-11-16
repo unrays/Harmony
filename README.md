@@ -138,4 +138,6 @@ namespace Audio {
 
     };
 }
+
+auto engine = Audio::Engine::create();
 ```

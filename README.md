@@ -118,24 +118,24 @@ namespace Audio {
         Playback player;
 
     private:
-        Engine(Playback initPlayer) : player(initPlayer), status(Status::Off) {}
-
+        Engine(std::unique_ptr<Playback> initPlayer)
+            : player(std::move(initPlayer)), status(Status::Off) {}
+    
         void onStarting() { status = Status::Starting; }
         void onCreated() { status = Status::On; }
-
+    
         bool is(Status s) const { return status == s; }
-
+    
     public:
-        Engine create() const {
-            auto instance = Engine(player);
+        static Engine create() {
+            auto instance = Engine(std::make_unique<Playback>());
             instance.onStarting();
             instance.onCreated();
             return instance;
         }
-
+        
         bool isOn() const { return is(Status::On);; }
         bool isOff() const { return is(Status::Off);; }
-
     };
 }
 

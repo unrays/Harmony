@@ -18,7 +18,7 @@ A C++ sound engine focused on orchestrating multiple sound layers efficiently
 namespace Configuration {
     namespace Graphics { }
     namespace Audio {
-        inline const float Volume = 0.05f;
+        inline float Volume = 0.05f;
     }
 }
 
@@ -42,13 +42,16 @@ namespace Audio {
     class Playback {
     private:
         struct InternalState {
-            State currentState = State::Stopped;
-            uint32_t currentFrame = 0;
-            float currentVolume = 0.05f;
-            uint8_t currentNote = 0;
+            State currentState;
+            uint32_t currentFrame;
+            float& currentVolume;
+            uint8_t currentNote;
+
+            InternalState() : currentState(State::Stopped), currentFrame(0),
+                currentVolume(Configuration::Audio::Volume), currentNote(0) { }
         };
         inline static InternalState internal;
-
+        
         Playback() = delete;
         ~Playback() = delete;
 
@@ -168,7 +171,7 @@ int main() {
     config = ma_device_config_init(ma_device_type_playback);
     config.playback.format = ma_format_u8;   // 8-bit
     config.playback.channels = 1;            // mono
-    config.sampleRate = 44100;               // standard
+    config.sampleRate = 48000;              // standard
     config.dataCallback = Audio::Internal::onAudioCallback;
 
     result = ma_device_init(&context, &config, &device);  // init
@@ -181,12 +184,21 @@ int main() {
 
 
     Audio::Engine::playSound(440, 1000);
+   
+    printf("Press Enter pour quitter...\n");
+    std::cin.get();
+
+    Configuration::Audio::Volume = 0.10;
+    Audio::Engine::playSound(440, 3000);
+
     printf("Press Enter pour quitter...\n");
     std::cin.get();
 
     /*********************************************************************/
 
     //Audio::Synth::playSound(&device, 440, 0.05f);
+
+
 
     Audio::Stream::NotImplemented();
 

@@ -1,6 +1,7 @@
 # Harmony
 A C++ sound engine focused on orchestrating multiple sound layers efficiently
 
+This is my first time experimenting with namespaces in C++, and I've tried to create an architecture that I think is very interesting. Now it's up to you to judge; I'm open to all your feedback. Oh, by the way, I also tried working with the miniaudio library to help me conceptualize and build everything.
 
 ```cpp
 // Copyright (c) November 2025 Félix-Olivier Dumas. All rights reserved.

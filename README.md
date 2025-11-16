@@ -173,7 +173,7 @@ int main() {
 
     result = ma_device_init(&context, &config, &device);  // init
     if (result != MA_SUCCESS) {
-        printf("Erreur: impossible d'initialiser le device audio.\n");
+        printf("Erreur: Unable to init audio devices.\n");
         return -1;
     }
 
@@ -181,7 +181,7 @@ int main() {
 
 
     Audio::Engine::playSound(440, 1000);
-    printf("Appuie sur Entrée pour quitter...\n");
+    printf("Press Enter pour quitter...\n");
     std::cin.get();
 
     /*********************************************************************/

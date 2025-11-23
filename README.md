@@ -4,6 +4,8 @@ A C++ sound engine focused on orchestrating multiple sound layers efficiently
 This is my first time experimenting with namespaces in C++, and I've tried to create an architecture that I think is very interesting. Now it's up to you to judge; I'm open to all your feedback. Oh, by the way, I also tried working with the miniaudio library to help me conceptualize and build everything. It's far from being finished :)
 
 This is the first time in my life I've attempted to design a sound engine, and I find it incredibly exciting and addictive ;) Furthermore, it's the first time I've worked with namespaces, and I find them extremely useful. They allow you to add a fourth dimension to the architecture, much like a file tree would. Although it's not finished yet, I still want to say that I'm really satisfied with the progress I've made.
+
+*Due to my lack of knowledge and time, I think I'll take a break from this project. Maybe I'll come back to it someday, who knows? In the meantime, keep an eye out for new updates on my GitHub account ;)*
 ```cpp
 // Copyright (c) November 2025 Félix-Olivier Dumas. All rights reserved.
 // Licensed under the terms described in the LICENSE file
